@@ -1,5 +1,6 @@
 package com.example.databasemp2.Data.DAO;
 
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -9,6 +10,7 @@ import com.example.databasemp2.Data.Mahasiswa;
 
 import java.util.List;
 
+@Dao
 public interface MahasiswaDAO {
 
     @Query("SELECT * FROM mahasiswa")

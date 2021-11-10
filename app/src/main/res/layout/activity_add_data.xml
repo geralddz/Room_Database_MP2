@@ -51,6 +51,14 @@
             android:layout_marginBottom="10dp"
             android:hint="Alamat" />
 
+        <EditText
+        android:id="@+id/etSKS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginBottom="10dp"
+        android:hint="SKS" />
+
         <Button
             android:id="@+id/btInsert"
             android:layout_width="match_parent"

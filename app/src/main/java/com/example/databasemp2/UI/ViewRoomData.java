@@ -44,6 +44,7 @@ public class ViewRoomData extends AppCompatActivity {
             Log.e("Aplikasi",listMahasiswas.get(i).getKejuruan()+i);
             Log.e("Aplikasi",listMahasiswas.get(i).getNama()+i);
             Log.e("Aplikasi",listMahasiswas.get(i).getNim()+i);
+            Log.e("Aplikasi", String.valueOf(Integer.valueOf(listMahasiswas.get(i).getSKS()+i)));
         }
     }
     private void initRecyclerView() {

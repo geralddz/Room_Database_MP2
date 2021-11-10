@@ -16,7 +16,7 @@ import com.example.databasemp2.R;
 
 public class AddData extends AppCompatActivity implements View.OnClickListener {
 
-    EditText etNama, etNim, etKejuruan, etAlamat;
+    EditText etNama, etNim, etKejuruan, etAlamat, etSKS;
     public final static String TAG_DATA_INTENT = "data_mahasiswa";
     private Mahasiswa mahasiswa;
     private MahasiswaDAO dao;
@@ -40,13 +40,14 @@ public class AddData extends AppCompatActivity implements View.OnClickListener {
         etNim = findViewById(R.id.etNim);
         etKejuruan = findViewById(R.id.etKejuruan);
         etAlamat = findViewById(R.id.etAlamat);
+        etSKS = findViewById(R.id.etSKS);
 
         if (mahasiswa != null) {
             etNama.setText(mahasiswa.getNama());
             etNim.setText(mahasiswa.getNim());
             etKejuruan.setText(mahasiswa.getKejuruan());
             etAlamat.setText(mahasiswa.getAlamat());
-
+            etSKS.setText(mahasiswa.getSKS());
             btnTambah.setText("Ubah Data");
         }
         btnTambah.setOnClickListener(this);
@@ -72,6 +73,7 @@ public class AddData extends AppCompatActivity implements View.OnClickListener {
         mahasiswa.setNim(etNim.getText().toString());
         mahasiswa.setAlamat(etAlamat.getText().toString());
         mahasiswa.setKejuruan(etKejuruan.getText().toString());
+        mahasiswa.setSKS(Integer.parseInt(etSKS.getText().toString()));
     }
 
 //    private void tambahData() {

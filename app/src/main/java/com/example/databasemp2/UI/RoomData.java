@@ -18,7 +18,7 @@ public class RoomData extends AppCompatActivity {
         Button btnLihat =  findViewById(R.id.btnlihat);
 
         btnTambah.setOnClickListener(v -> {
-            Intent i = new Intent(RoomData.this, RoomData.class);
+            Intent i = new Intent(RoomData.this, AddData.class);
             startActivity(i);
         });
 

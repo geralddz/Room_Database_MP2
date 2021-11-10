@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.databasemp2.UI.AddData;
@@ -16,6 +17,7 @@ import com.example.databasemp2.Data.DataListListener;
 import com.example.databasemp2.Data.Database.MyApp;
 import com.example.databasemp2.Data.Mahasiswa;
 import com.example.databasemp2.R;
+import com.example.databasemp2.UI.CrudActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,7 +90,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 
-        private TextView tvNama, tvNim,tvAlamat,tvKejuruan;
+        private TextView tvNama, tvNim,tvAlamat,tvKejuruan, tvSKS;
         private ImageView btnHapus;
         private Mahasiswa data;
         private DataListListener listener;
@@ -99,10 +101,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             tvNim = itemView.findViewById(R.id.tvNim);
             tvAlamat = itemView.findViewById(R.id.tvAlamat);
             tvKejuruan = itemView.findViewById(R.id.tvKejuruan);
+            tvSKS = itemView.findViewById(R.id.tvSKS);
             btnHapus = itemView.findViewById(R.id.btn_hapus);
-
-
-            itemView.setOnClickListener(this);
             btnHapus.setOnClickListener(this);
         }
 
@@ -114,16 +114,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             tvNim.setText(data.getNim());
             tvAlamat.setText(data.getAlamat());
             tvKejuruan.setText(data.getKejuruan());
-
+            tvSKS.setText(String.valueOf(data.getSKS()));
         }
 
         @Override
+
         public void onClick(View view) {
             if (view.getId() == R.id.btn_hapus) {
 
                 MyApp.getInstance().getDatabase().userDao().delete(data);
                 listener.onRemoveClick(data);
-                Toast.makeText(itemView.getContext(), "Berhasil Dihapus", Toast.LENGTH_SHORT).show();
 
             } else if (view.getId() == R.id.item_list) {
 

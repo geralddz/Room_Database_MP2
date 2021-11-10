@@ -4,9 +4,12 @@ import android.app.Application;
 
 import androidx.room.Room;
 
+import com.example.databasemp2.Data.DatabaseMigration;
+
 public class MyApp extends Application {
     private static MyApp INSTANCE;
     public static AppDatabase db;
+    private Object DatabaseMigrations;
 
     public static MyApp getInstance(){
         return INSTANCE;
@@ -17,7 +20,14 @@ public class MyApp extends Application {
         super.onCreate();
         db = Room.databaseBuilder(this,
                 AppDatabase.class,"database_mahasiswa")
-                .allowMainThreadQueries().build();
+                .addMigrations(
+                        DatabaseMigration.MIGRATION_1_TO_2,
+                        DatabaseMigration.MIGRATION_2_TO_3
+                )
+                .fallbackToDestructiveMigrationOnDowngrade()
+                .fallbackToDestructiveMigration()
+                .allowMainThreadQueries()
+                .build();
         INSTANCE = this;
 
     }

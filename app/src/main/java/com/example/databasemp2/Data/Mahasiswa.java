@@ -23,6 +23,9 @@ public class Mahasiswa {
     @ColumnInfo(name = "alamat")
     private String alamat = "";
 
+    @ColumnInfo(name = "SKS")
+    private int SKS;
+
     public int getId() {
         return id;
     }
@@ -51,5 +54,8 @@ public class Mahasiswa {
     public void setAlamat(String alamat) {
         this.alamat = alamat;
     }
+
+    public int getSKS() { return SKS; }
+    public void setSKS(int SKS ) { this.SKS = SKS; }
 
 }
